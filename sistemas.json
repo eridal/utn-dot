@@ -1,0 +1,226 @@
+[[
+	{
+		"nombre": "Algebra",
+		"id": "algebra",
+		"tipo": "A"
+	},
+	{
+		"nombre": "Analisis I",
+		"id": "am1",
+		"tipo": "C"
+	},
+	{
+		"nombre": "Matematicas Discretas",
+		"id": "mat_discreta",
+		"tipo": "C"
+	},
+	{
+		"nombre": "Quimica",
+		"id": "quimica",
+		"tipo": "C"
+	},
+	{
+		"nombre": "Ing. y Sociedad",
+		"id": "ing_sociedad",
+		"tipo": "C"
+	},
+	{
+		"nombre": "Algoritmos",
+		"id": "algoritmos",
+		"tipo": "C"
+	},
+	{
+		"nombre": "Arquitectura",
+		"id": "arquitectura",
+		"tipo": "C"
+	},
+	{
+		"nombre": "Sist. y Organizaciones",
+		"id": "sist_org",
+		"tipo":"C"
+	}
+],
+[
+	{	"nombre": "Analisis de Sistemas",
+		"id": "a_sist",
+		"tipo": "A",
+		"cursada": ["sist_org", "algoritmos"]
+	},
+	{
+		"nombre": "Sist Representacion",
+		"id": "sist_repre",
+		"tipo": "A"
+	},
+	{
+		"nombre": "Analisis II",
+		"id": "am2",
+		"tipo": "C",
+		"cursada": ["am1", "algebra"]
+	},
+	{
+		"nombre": "Sintaxis",
+		"id": "sintaxis",
+		"tipo":"C",
+		"cursada": ["mat_discreta", "algoritmos"]
+	},
+	{
+		"nombre": "Ingles I",
+		"id": "ingles_1",
+		"tipo": "C"
+	},
+	{
+		"nombre": "Fisica I",
+		"id": "fisica_1",
+		"tipo":"C"
+	},
+	{
+		"nombre": "Paradigmas",
+		"id": "paradigmas",
+		"tipo": "C",
+		"cursada": ["mat_discreta", "algoritmos"]
+	},
+	{
+		"nombre": "Prob. y Estadistica",
+		"id": "proba",
+		"tipo": "C",
+		"cursada": ["am1", "algebra"]
+	}
+],
+[
+	{
+		"nombre": "Dis. de Sistemas",
+		"id": "dise_sist",
+		"tipo": "A",
+		"cursada": ["a_sist", "paradigmas"],
+		"aprobada": ["mat_discreta", "sist_org", "algoritmos"]
+	},
+	{
+		"nombre": "Sist. Operativos",
+		"id": "sisop",
+		"tipo": "C",
+		"cursada": ["mat_discreta", "algoritmos", "arquitectura"]
+	},
+	{
+		"nombre": "Fisica II",
+		"id": "fisica_2",
+		"tipo": "C",
+		"cursada": ["am1", "fisica_1"]
+	},
+	{
+		"nombre": "Economia",
+		"id": "economia",
+		"tipo": "C",
+		"cursada": ["a_sist"],
+		"aprobada": ["sist_org", "algoritmos"]
+	},
+	{
+		"nombre": "Gestion de Datos",
+		"id": "gestion_datos",
+		"tipo": "C",
+		"cursada": ["a_sist", "sintaxis", "paradigmas"],
+		"aprobada": ["mat_discreta", "sintaxis", "algoritmos"]
+	},
+	{
+		"nombre": "Mat Superior",
+		"id": "mat_superior",
+		"tipo": "C",
+		"cursada": ["am2"],
+		"aprobada": ["am1", "algebra"]
+	},
+	{
+		"nombre": "Legislacion",
+		"id": "legislacion",
+		"tipo": "C",
+		"cursada": ["a_sist", "ing_sociedad"],
+		"aprobada": ["sist_org", "algoritmos"]
+	},
+	{
+		"nombre" : "Ingles II",
+		"id": "ingles_2",
+		"tipo": "L",
+		"aprobada": ["ingles_1"]
+	}
+],
+[
+	{
+		"nombre": "Adm. Recursos",
+		"id": "adm_rec",
+		"tipo": "A",
+		"cursada": ["dise_sist", "sisop", "economia"],
+		"aprobada": ["arquitectura", "ingles_1", "a_sist", "paradigmas"]
+	},
+	{
+		"nombre": "Ing. en Software",
+		"id": "ing_soft",
+		"tipo": "C",
+		"cursada": ["proba", "dise_sist", "gestion_datos"],
+		"aprobada": ["a_sist", "sintaxis", "paradigmas"]
+	},
+	{
+		"nombre": "Teoria de Control",
+		"id": "teoria_control",
+		"tipo": "C",
+		"cursada": ["quimica", "mat_superior"],
+		"aprobada": ["am2", "fisica_2"]
+	},
+	{
+		"nombre": "Comunicaciones",
+		"id": "comu",
+		"tipo": "C",
+		"cursada": ["arquitectura", "am2", "fisica_2"],
+		"aprobada": ["am1", "algebra", "fisica_1"]
+	},
+	{
+		"nombre": "Redes de Informacion",
+		"id": "redes",
+		"tipo": "C",
+		"cursada": ["sisop", "comu"],
+		"aprobada": ["mat_discreta", "algoritmos", "arquitectura", "am2", "fisica_2"]
+	},
+	{
+		"nombre": "Inv. Operativa",
+		"id": "inv_op",
+		"tipo": "C",
+		"cursada": ["proba", "mat_superior"],
+		"aprobada": ["am2"]
+	},
+	{
+		"nombre": "Simulacion",
+		"id": "simu",
+		"tipo": "C",
+		"cursada": [ "paradigmas", "mat_superior"],
+		"aprobada": ["am2"]
+	}
+],
+[
+	{	"nombre": "Proyecto Final",
+		"id": "proyecto_final",
+		"tipo": "A",
+		"cursada": ["legislacion", "adm_rec", "redes", "ing_soft"],
+		"aprobada": ["ing_sociedad", "sist_repre", "proba", "sisop", "dise_sist", "gestion_datos", "economia", "ingles_2", "comu"]
+	},
+	{	"nombre": "habilitacion_prof",
+		"id": "habilitacion_prof",
+		"tipo": "A",
+		"cursada": ["dise_sist", "gestion_datos", "comu", "redes"],
+		"aprobada": ["a_sist", "sintaxis", "am2", "paradigmas", "sisop", "ingles_2"]
+	},
+	{	"nombre": "Inteligencia Artificial",
+		"id": "inteligencia_artificial",
+		"tipo": "C",
+		"cursada": ["inv_op", "simu"],
+		"aprobada": ["proba", "dise_sist", "mat_superior"]
+	},
+	{	"nombre": "Adm Gerencial",
+		"id": "adm_gerencial",
+		"tipo": "C",
+		"cursada": ["adm_rec", "inv_op"],
+		"aprobada": ["proba", "dise_sist", "sisop", "mat_superior", "economia"]
+	},
+	{	"nombre": "Sist. de Gestion",
+		"id": "sist_gestion",
+		"tipo": "C",
+		"cursada": ["adm_rec", "inv_op", "simu"],
+		"aprobada": ["proba", "dise_sist", "sisop", "mat_superior", "economia"]
+	}
+]]

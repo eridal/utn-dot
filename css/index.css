@@ -1,0 +1,33 @@
+
+.clear {
+	clear: both;
+}
+
+h1  {
+	text-align: center;
+}
+
+textarea {
+	width: 95%;
+}
+
+.nivel {
+	border-left: 3px solid silver;
+	border-bottom: 3px solid silver;
+	padding-bottom: 10px;
+	margin: 0 10px;
+}
+.nivel h3 {
+	padding-left: 5px;
+}
+
+.materia  {
+	padding: 5px;
+	margin: 1px;
+	float: left;
+	width: 200px;
+}
+
+.materia .active {
+	font-weight: bold;
+}

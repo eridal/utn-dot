@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>utn-dot</title>
+		<link rel="stylesheet" href="assets/bootstrap.css"/>
+		<link rel="stylesheet" href="css/index.css"/>
+
+		<script src="assets/jquery.js"></script>
+		<script src="assets/underscore.js"></script>
+		<script src="assets/require.js"></script>
+		<script src="assets/backbone.js"></script>
+		<script src="assets/bootstrap.js"></script>
+	</head>
+	<body>
+		<script>
+			require.config({baseUrl: 'js/'});
+			require([
+				'view/Carrera',
+				'model/Carrera'
+			], function (CarreraView, Carrera) {
+				var view, model;
+
+				// La Carrera
+				model = new Carrera();
+				model.fetch({
+					url: 'sistemas.json',
+					error: _.bind(console.log, console, 'ERRROR')
+				});
+
+				// La vista de la carrera
+				view = new CarreraView({
+					model: model
+				});
+
+				view.$el.appendTo(document.body);
+				model.on('change', view.render, view);
+			});
+		</script>
+		<script>
+			var _gaq, script;
+				_gaq = window._gaq || [];
+				_gaq.push(['_setAccount', 'UA-32184139-1']);
+				_gaq.push(['_trackPageview']);
+
+				script = document.createElement('script');
+				script.async = true;
+				script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			document.body.appendChild(script);
+		</script>
+	</body>
+</html>
