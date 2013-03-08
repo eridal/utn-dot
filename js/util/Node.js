@@ -16,7 +16,7 @@ define('util/Node', function () {
 			if (this.options) {
 				var options = _.map(this.options, function (value, key) {
 					return [key, '="', value, '"'].join('');
-				}).join('; ')
+				}).join(' ')
 
 				if (options) {
 					buffer.push('[');
