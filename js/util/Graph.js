@@ -19,7 +19,8 @@ define('util/Graph', function () {
 
 		toString: function () {
 			var buffer = [];
-				buffer.push(this.parent ? 'subgraph' : 'digraph');
+				// adding \n\t for subgraphs to prevent dot bug
+				buffer.push(this.parent ? '\n\tsubgraph' : 'digraph');
 				buffer.push(this.name);
 				buffer.push('{');
 
@@ -33,8 +34,9 @@ define('util/Graph', function () {
 				_.each(this.nodes, function (node) {
 					buffer.push(node);
 				});
-
-				buffer.push('}');
+				
+				// adding \n to digraph for pretty-print
+				buffer.push(this.parent ? '}' : '\n}');
 
 			return buffer.join(' ');
 		}
