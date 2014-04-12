@@ -1,3 +1,0 @@
-http://graphviz-dev.appspot.com/create_preview
-	engine: 'dot',
-	script: el grafico
