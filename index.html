@@ -11,21 +11,27 @@
 		<script src="assets/require.js"></script>
 		<script src="assets/backbone.js"></script>
 		<script src="assets/bootstrap.js"></script>
+        <script src="assets/viz.js"></script>
 	</head>
 	<body>
 		<script>
 			require.config({baseUrl: 'js/'});
-			require([
+
+            require([
 				'view/Carrera',
 				'model/Carrera'
 			], function (CarreraView, Carrera) {
+
 				var view, model;
 
-				// La Carrera
 				model = new Carrera();
 				model.fetch({
 					url: 'sistemas.json',
-					error: _.bind(console.log, console, 'ERRROR')
+					error: function () {
+                        if (confirm('error al cargar plan de estudios\nrecargar?')) {
+                            window.location.reload(false);
+                        }
+                    }
 				});
 
 				// La vista de la carrera

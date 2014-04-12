@@ -31,7 +31,7 @@ define('util/Node', function () {
 
 				buffer.push('{');
 				buffer.push(
-					deps.join(',')
+					deps.join(' ')
 				);
 				buffer.push('}');
 				buffer.push('->');

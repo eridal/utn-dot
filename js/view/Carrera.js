@@ -5,7 +5,7 @@ define('view/Carrera', [
 	return Backbone.View.extend({
 		className: 'carrera',
 
-		//<div class="modal-backdrop fade in"></div> 
+		//<div class="modal-backdrop fade in"></div>
 
 		template: _.template([
 			'<h1>',
@@ -19,14 +19,8 @@ define('view/Carrera', [
 			'<div class="modal hide fade" tabindex="-1" role="dialog">',
 				'<div class="modal-header">',
 					'<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>',
-					'<h3>Grafico generado</h3>',
 				'</div>',
 				'<div class="modal-body">',
-					'<p>Copia el grafico y pegalo <a href="http://graphviz-dev.appspot.com/" target="_blank">en este sitio</a></p>',
-					'<textarea onclick="select()"></textarea>',
-				'</div>',
-				'<div class="modal-footer">',
-					'<button class="btn" data=dismiss="dialog">Cerrar</button>',
 				'</div>',
 			'</div>',
 		].join('')),
@@ -65,10 +59,13 @@ define('view/Carrera', [
 		},
 
 		renderGraph: function () {
-			this.$('textarea').text(
-				this.model.dot().toString()
-			);
-			this.$('.modal').modal();
+            var graph = this.model.dot().toString();
+
+            $.post('graph.php', {
+                'svg': Viz(graph, 'svg')
+            }).done(function (result) {
+                window.open(result, 'graph');
+            });
 		}
 	});
 });
