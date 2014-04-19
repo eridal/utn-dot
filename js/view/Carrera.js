@@ -29,10 +29,6 @@ define('view/Carrera', [
 			'click .btn-primary': 'renderGraph'
 		},
 
-		initialize: function () {
-			this.model.on('change', this.renderGraph, this);
-		},
-
 		render: function () {
 			this.$el.html(this.template());
 			this.renderNiveles();
@@ -59,6 +55,7 @@ define('view/Carrera', [
 		},
 
 		renderGraph: function () {
+
             var graph = this.model.dot().toString();
 
             $.post('graph.php', {
