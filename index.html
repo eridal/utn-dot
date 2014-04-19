@@ -3,21 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title>utn-dot</title>
-		<link rel="stylesheet" href="assets/bootstrap.css"/>
-		<link rel="stylesheet" href="css/index.css"/>
-
-		<script src="assets/jquery.js"></script>
-		<script src="assets/underscore.js"></script>
-		<script src="assets/require.js"></script>
-		<script src="assets/backbone.js"></script>
-		<script src="assets/bootstrap.js"></script>
-        <script src="assets/viz.js"></script>
+		<link rel="stylesheet" href="build/styles.css"/>
+		<script src="build/scripts.js"></script>
 	</head>
 	<body>
+        Cargando...
 		<script>
-			require.config({baseUrl: 'js/'});
-
-            require([
+			require([
 				'view/Carrera',
 				'model/Carrera'
 			], function (CarreraView, Carrera) {
@@ -39,20 +31,18 @@
 					model: model
 				});
 
-				view.$el.appendTo(document.body);
-				model.on('change', view.render, view);
+                model.on('change', view.render, view);
+                $(document.body).empty().append(view.$el);
 			});
 		</script>
 		<script>
-			var _gaq, script;
-				_gaq = window._gaq || [];
-				_gaq.push(['_setAccount', 'UA-32184139-1']);
-				_gaq.push(['_trackPageview']);
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-				script = document.createElement('script');
-				script.async = true;
-				script.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			document.body.appendChild(script);
-		</script>
+          ga('create', 'UA-32184139-1', location.host);
+          ga('send', 'pageview');
+        </script>
 	</body>
 </html>
