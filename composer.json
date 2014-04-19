@@ -1,8 +1,7 @@
 {
     "require": {
         "php": ">=5.3",
-
-        "slim/slim": "*",
-        "kriswallsmith/assetic": "*"
+        "kriswallsmith/assetic": "*",
+        "linkorb/jsmin-php": "*"
     }
 }
