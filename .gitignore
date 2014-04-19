@@ -5,4 +5,4 @@ composer.lock
 
 # generated
 build/styles.css
-build/styles.js
+build/scripts.js
