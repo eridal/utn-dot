@@ -3,12 +3,8 @@
 	clear: both;
 }
 
-h1  {
+.header  {
 	text-align: center;
-}
-
-textarea {
-	width: 95%;
 }
 
 .nivel {

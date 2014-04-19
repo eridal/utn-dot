@@ -8,13 +8,13 @@ define('view/Carrera', [
 		//<div class="modal-backdrop fade in"></div>
 
 		template: _.template([
-			'<h1>',
-				'Tu Carrera',
-				'<div class="hide progress">',
-					'<div style="width: 0%;" class="bar"></div>',
-				'</div>',
-				'<br /><button class="btn btn-primary">Generar Grafico</button>',
-			'</h1>',
+            '<div class="header">',
+    			'<h1 class="page-header">Tu Carrera</h1>',
+                '<p>',
+    				'<button class="js-generate btn btn-primary">Generar Grafico</button>',
+                    '<br><a class="js-graph" style="display:none" href="_blank">Ver Grafico</a>',
+                '</p>',
+            '</div>',
 			'<div class="niveles"></div>',
 			'<div class="modal hide fade" tabindex="-1" role="dialog">',
 				'<div class="modal-header">',
@@ -26,7 +26,7 @@ define('view/Carrera', [
 		].join('')),
 
 		events: {
-			'click .btn-primary': 'renderGraph'
+			'click .js-generate': 'renderGraph'
 		},
 
 		render: function () {
@@ -56,12 +56,23 @@ define('view/Carrera', [
 
 		renderGraph: function () {
 
-            var graph = this.model.dot().toString();
+            var btnGenerate = this.$el.find('.js-generate')
+                                      .text('Generando...')
+                                      .prop('disabled', true);
+
+            var btnShow = this.$el.find('.js-graph')
+                                  .hide();
 
             $.post('graph.php', {
-                'svg': Viz(graph, 'svg')
-            }).done(function (result) {
-                window.open(result, 'graph');
+                'svg': Viz(this.model.dot().toString(), 'svg')
+            })
+             .done(function (result) {
+
+                btnGenerate.prop('disabled', false)
+                           .text('Generar Grafico');
+
+                btnShow.attr('href', result)
+                       .show();
             });
 		}
 	});
