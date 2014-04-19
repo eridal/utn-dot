@@ -2,6 +2,7 @@
     "require": {
         "php": ">=5.3",
         "kriswallsmith/assetic": "*",
-        "linkorb/jsmin-php": "*"
+        "linkorb/jsmin-php": "*",
+        "natxet/CssMin": "*"
     }
 }
