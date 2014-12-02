@@ -46,10 +46,20 @@
         </script>
         <script>
         $(function() {
-            $.getScript('assets/viz.js', function() {
-                var button = $('.js-generate');
-                button.text(button.data('text'))
-                      .removeAttr('disabled');
+            $.ajax({
+                url: 'assets/viz.js2',
+                dataType: 'script',
+                cache: true,
+                success: function() {
+                    var button = $('.js-generate');
+                    button.text(button.data('text'))
+                          .removeAttr('disabled');
+                },
+                error: function () {
+                    if (confirm('Ocurrio un error en la red\nrecargar la pagina?')) {
+                        window.location.reload(false);
+                    }
+                }
             });
         });</script>
 	</body>
