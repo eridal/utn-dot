@@ -11,7 +11,7 @@ define('view/Carrera', [
             '<div class="header">',
     			'<h1 class="page-header">Tu Carrera</h1>',
                 '<p>',
-    				'<button class="js-generate btn btn-primary">Generar Grafico</button>',
+                    '<button class="js-generate btn btn-primary" disabled="disabled" data-text="Generar Grafico">Cargando..</button>',
                     '<br><a class="js-graph" style="display:none" href="_blank">Ver Grafico</a>',
                 '</p>',
             '</div>',

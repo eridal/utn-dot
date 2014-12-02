@@ -46,7 +46,11 @@
         </script>
         <script>
         $(function() {
-            $.getScript('assets/viz.js');
+            $.getScript('assets/viz.js', function() {
+                var button = $('.js-generate');
+                button.text(button.data('text'))
+                      .removeAttr('disabled');
+            });
         });</script>
 	</body>
 </html>
