@@ -4,5 +4,10 @@
         "kriswallsmith/assetic": "*",
         "linkorb/jsmin-php": "*",
         "natxet/CssMin": "*"
+    },
+
+    "scripts": {
+      "post-install-cmd": "make",
+      "post-update-cmd" : "make"
     }
 }

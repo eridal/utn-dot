@@ -1,7 +1,6 @@
 
 # composer
 vendor/
-composer.lock
 
 # generated
 build/styles.css
